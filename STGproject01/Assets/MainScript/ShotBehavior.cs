@@ -3,14 +3,9 @@ using System.Collections;
 
 public class ShotBehavior : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		transform.position += transform.forward * Time.deltaTime * 1000f;
-		Destroy(gameObject, 2.0f);
+		transform.position += transform.forward * Time.deltaTime * 500f;
+		Destroy(gameObject, 0.3f);
 	}
 }

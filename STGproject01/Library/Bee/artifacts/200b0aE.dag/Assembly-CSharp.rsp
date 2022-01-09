@@ -112,6 +112,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/2021.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -320,6 +321,8 @@
 -r:"E:/Downloads/STG-project02-master/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll"
 -r:"E:/Downloads/STG-project02-master/Library/PackageCache/com.unity.visualscripting@1.7.5/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TextMeshPro.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TextMeshPro.ref.dll"
@@ -337,8 +340,12 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/MainScript/CliarArea.cs"
 "Assets/MainScript/DangerArea.cs"
-"Assets/MainScript/EnemyShooting.cs"
+"Assets/MainScript/DieArea.cs"
+"Assets/MainScript/EnemyA.cs"
+"Assets/MainScript/EnemyB.cs"
+"Assets/MainScript/EnemyC.cs"
 "Assets/MainScript/E_ShotBehavior.cs"
 "Assets/MainScript/GaugeDirector.cs"
 "Assets/MainScript/PlayerController.cs"
@@ -348,9 +355,8 @@
 "Assets/MainScript/sample01/VolumetricLineVertexData.cs"
 "Assets/MainScript/ShotBehavior.cs"
 "Assets/MainScript/TransitionScript/ApplicationManager.cs"
+"Assets/MainScript/TransitionScript/GameTransition.cs"
 "Assets/MainScript/TransitionScript/PanelManager.cs"
-"Assets/MainScript/TransitionScript/StartGameMain.cs"
-"Assets/MainScript/TransitionScript/StartMainButton.cs"
 "Assets/MainScript/TransitionScript/TiltWindow.cs"
 "Assets/MainScript/VolumetricMultiLineBehavior.cs"
 "Assets/Unity UI Samples/Scripts/ActiveStateToggler.cs"

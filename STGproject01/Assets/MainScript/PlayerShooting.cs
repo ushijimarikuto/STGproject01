@@ -19,17 +19,20 @@ public class PlayerShooting : MonoBehaviour
     // クールタイム
     public float waitTime = 0.1f;
 
+    //音声ファイル格納用変数
+    public AudioClip sound1;
+    AudioSource audioSource;
+
 
     Dictionary<string, bool> move = new Dictionary<string, bool>
     {
         {"shot", false }
     };
 
-
-    // Use this for initialization
-    void Start()
+    void Start () 
     {
-
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,17 +46,20 @@ public class PlayerShooting : MonoBehaviour
     {
         seconds += Time.deltaTime;
 
-        if (BulletCount <= 12)
+        if (BulletCount <= 15)
         {
             // spaceキーが押された時
             if (move["shot"] & seconds >= waitTime)
             {
+                //音(sound1)を鳴らす
+                audioSource.PlayOneShot(sound1);
+
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet) as GameObject;
 
                 Vector3 force;
 
-                force = this.gameObject.transform.forward * 10f;
+                force = this.gameObject.transform.forward * 5f;
 
                 // Rigidbodyに力を加えて発射
                 bullets.GetComponent<Rigidbody>().AddForce(force);
@@ -61,6 +67,7 @@ public class PlayerShooting : MonoBehaviour
                 // 弾丸の位置を調整
                 bullets.transform.position = muzzle.position;
 
+                //弾のゲージを減らす処理
                 GameObject director = GameObject.Find("GaugeDirector");
                 director.GetComponent<GaugeDirector>().DecreaseAmmoGauge();
                 BulletCount += 1.0f;
@@ -68,7 +75,7 @@ public class PlayerShooting : MonoBehaviour
                 seconds = 0;
             }
 
-        }else if(BulletCount >= 13)
+        }else if(BulletCount >= 16)
         {
             StartCoroutine("shotTimer");
         }
@@ -78,13 +85,14 @@ public class PlayerShooting : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            // 衝突した相手を闇の彼方に消し去ります。
+            // 衝突した相手を闇の彼方に消し去ります
             Destroy(other.gameObject);
         }
     }
 
     IEnumerator shotTimer()
     {
+        //弾のゲージを増やす処理
         GameObject director = GameObject.Find("GaugeDirector");
         director.GetComponent<GaugeDirector>().RiseAmmoGauge();
 
